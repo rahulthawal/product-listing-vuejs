@@ -16,7 +16,7 @@ import ProductItem from "./ProductItem.vue";
 import axios from "axios";
 
 export default {
-  name: "product-list",
+  name: "productlist",
   data() {
     return {
       products: []
