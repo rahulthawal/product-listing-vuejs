@@ -3,10 +3,13 @@
     width: 100%;
     padding: 20px;">
     <template v-for="product in products">
+      <!-- Check the product id -->
       <template v-if="$route.params.productId == product.id">
+        <!--Displaying the Product Image-->
         <div class="card">
           <img style="width:600px;height:600px;" :src="product.url" />
         </div>
+        <!--Displaying the Product Name, Price, Exclusive Price-->
         <div class="card" style="width: 40%;
           margin-left: 30px;
           padding: 10px;">
@@ -26,6 +29,7 @@
                 </b-form-group>
               </b-form>
             </template>
+            <!-- Coupon Code -->
             <div>Note: The Coupon Code is DIS5</div>
             <b-card v-if="form.coupon ==='DIS5'" class="mt-3" header="Discount Price">
               <div>
@@ -53,6 +57,7 @@ export default {
       products: []
     };
   },
+  // To get all the products
   mounted: function() {
     axios
       .get("http://localhost:8000/fake-api/v1/souledStore/products")

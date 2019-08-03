@@ -6,6 +6,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
+  // Routes for Product List Page and Product Details Page
   routes: [
     {
       path: '/',

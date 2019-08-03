@@ -3,6 +3,7 @@
   float:left;
   margin:1%;
   padding:2px;">
+    <!--Individual Product-->
     <b-card
       :title="product.name"
       :img-src="product.url"

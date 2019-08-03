@@ -3,8 +3,9 @@
   <div class="products">
     <div class="container-fluid">
       <div class="row">
+        <!--Filter the checked categories from the Product-->
         <div class="col-md-2">
-          <span>PRODUCTS</span>
+          <span>PRODUCT TYPE</span>
           <div class="form-check">
             <input
               class="form-check-input"
@@ -36,8 +37,10 @@
             <label class="form-check-label" for="fullsleeves">Full Sleeves</label>
           </div>
         </div>
+        <!--The list of the product-->
         <div class="col-md-10">
           <template v-for="product in filteredProducts">
+            <!--Product Item Component-->
             <product-item :product="product" class="col-12 col-sm-6 col-md-4 pb-3"></product-item>
           </template>
         </div>
@@ -53,11 +56,14 @@ import axios from "axios";
 export default {
   name: "productlist",
   data() {
+    // Checked Categories to filter the data from the products
+    // List of all the Products
     return {
       checkedCat: [],
       products: []
     };
   },
+  // Calling API to get the products
   created() {
     axios
       .get("http://localhost:8000/fake-api/v1/souledStore/products")
@@ -65,6 +71,7 @@ export default {
         this.products = result.data;
       });
   },
+  // Filtering out the array from the Product Categories
   computed: {
     filteredProducts() {
       if (!this.checkedCat.length) return this.products;
